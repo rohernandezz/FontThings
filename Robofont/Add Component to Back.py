@@ -4,4 +4,8 @@ as a component to the background layer of the current glyph"""
 from mojo.UI import SelectGlyph
 font = CurrentFont()
 glyph = SelectGlyph(font)
+glyph = glyph.name
+
 print(glyph)
+
+current = CurrentGlyph()
