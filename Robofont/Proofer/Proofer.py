@@ -1,6 +1,7 @@
 '''AutoMagicProoferThing'''
 
 from datetime import datetime
+from math import ceil as ceil
 
 #---------
 #Settings
@@ -66,7 +67,7 @@ if "O" in f.keys():
 else: print("Control character 'O' not available")
 
 #------------
-#Draw Page 1
+#Footer
 #------------
 
 def drawFooter(pageNumber,totalPages):
@@ -74,22 +75,45 @@ def drawFooter(pageNumber,totalPages):
     # fill(1,.9,.9)
     # rect(x, y, w, h)
     txt = FormattedString()
-    txt.append(fname + ' ', font='InputMono-Bold')
-    txt.append(datetime.now().strftime("%m/%d/%Y, %H:%M:%S")+ '\n', font='InputMono-Regular')
-    txt.append(str(pageNumber) + '/' + str(totalPages), font='InputMono-Regular')
+    txt.append(fname + '\n', font='InputMono-Bold')
+    txt.append(datetime.now().strftime("%d/%m/%Y, %H:%M:%S")+ ' ', font='InputMono-Regular')
+    txt.append('p. ' + str(pageNumber) + '/' + str(totalPages), font='InputMono-Regular')
     textBox(txt, (x, y, w, h))
 
 drawFooter(1,1)
+
+
 #------------
-#Footer
+#Draw Page 1
 #------------
 
+
+
+
+
+
+# font(fname)
+# fontSize(50)
+# fill(0)
+# textBox(allSandwiches, (margin, margin, pageSize[0] - 2*margin, pageSize[1]-2*margin))
+
+
+# -----------------Attempt with textBox
+
+""
+
+fontPointSize = 50
+lineHeight = ceil(fontPointSize*1.12)
+
+x, y, w, h = margin, pageSize[1] - margin - lineHeight, pageSize[0] - 2*margin, lineHeight
+fill(1,.9,.9)
+rect(x, y, w, h)
 
 
 font(fname)
-fontSize(50)
-textBox(allSandwiches, (margin, margin, pageSize[0] - 2*margin, pageSize[1] - 2*margin))
-
+fontSize(fontPointSize)
+fill(0)
+textBox(allSandwiches, (x, y, w, h))
 
 
 
