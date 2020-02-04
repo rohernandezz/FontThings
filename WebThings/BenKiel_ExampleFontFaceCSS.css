@@ -1,0 +1,30 @@
+/* XYZ Type */
+
+@font-face {
+  font-family: 'Study';
+  src: url('Study_Light.eot');
+  src: url('Study_Light.eot?#iefix') format('embedded-opentype'),
+  url('Study_Light.woff2') format('woff2'),
+  url('Study_Light.woff') format('woff');
+  font-weight: 300;
+}
+
+.study_light{
+  font-family:'Study';
+  font-weight:300; 
+}
+
+@font-face {
+  font-family: 'Study';
+  src: url('Study_Semibold.eot');
+  src: url('Study_Semibold.eot?#iefix') format('embedded-opentype'),
+  url('Study_Semibold.woff2') format('woff2'),
+  url('Study_Semibold.woff') format('woff');
+  font-weight: 600;
+}
+
+.study_semibold{
+  font-family:'Study';
+  font-weight:600; 
+}
+

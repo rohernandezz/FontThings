@@ -20,6 +20,12 @@ def missingFrom(fontGlyphs, languageGlyphs):
     return(missing)
 
 print(divider)
+
+fontName = f.info.familyName + ' ' + f.info.styleName
+
+print(fontName, end = '\n')
+print('-' * len(fontName), end = '\n\n')
+
 for language in languagesToTest:
     languageGlyphs = languageDict[language]
     missing = missingFrom(currentFontGlyphs, languageGlyphs)
