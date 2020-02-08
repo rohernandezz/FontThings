@@ -24,17 +24,14 @@ class RhinoFont(object):
  
         self.glyph = CurrentGlyph()
         self.glyph.addObserver(self, "selectionCallback", "Glyph.SelectionChanged")
-        print("Added Observer") 
+        print("Added Observer")    
         
-    def selectionCallback(self, notification):
-        print("Selection Changed")
         
     def closeCallback(self, sender):
         self.glyph.removeObserver(self, "selectionCallback")
         print("Removed Observer") 
         self.w.close()
     
-         
     def getImplicitSelectedPoints(self):
         pts = []
         for contour in self.glyph.contours:
@@ -57,8 +54,12 @@ class RhinoFont(object):
                         if len(nextSegment) == 3:
                             bcpOut = nextSegment[0]
                             pts.append(bcpOut)
-        print(pts)
+        return pts #List of Rpoints
 
+    def selectionCallback(self, notification):
+        self.selectedPoints = self.getImplicitSelectedPoints()
+        print(self.selectedPoints)
+        
 RhinoFont()
 
 
